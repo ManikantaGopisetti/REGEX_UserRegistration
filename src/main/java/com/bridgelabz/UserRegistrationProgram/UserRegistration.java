@@ -19,7 +19,7 @@ public class UserRegistration {
 		String lastNameRegex = "^[A-Z][a-z]{2,}$"; // Last name starts with Cap and has minimum 3 characters
 		Pattern pattern = Pattern.compile(lastNameRegex);
 		Matcher matcher = pattern.matcher(lastName);
-		System.out.println("Last name pattern match: "+matcher.matches());// prints true if valid otherwise false
+		System.out.println("Last name pattern match: "+matcher.matches());
 	}
 
 	public void emailValidation(String email) {
@@ -41,7 +41,7 @@ public class UserRegistration {
 
 	public void passwordValidation(String password) {
 		
-		String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9]).{8,}$";  //atleast 1 numeric number
+		String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9])(?=^[A-Za-z0-9]*[_\\W][A-Za-z0-9]*$).{8,}$";  //exactly 1 special character
 		Pattern pattern = Pattern.compile(passwordRegex);
 		Matcher matcher = pattern.matcher(password);
 		System.out.println("password pattern match: "+matcher.matches());
