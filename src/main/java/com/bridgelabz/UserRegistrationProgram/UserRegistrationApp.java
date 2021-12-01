@@ -15,12 +15,16 @@ public class UserRegistrationApp {
 		String email = sc.nextLine();
 		System.out.print("Enter mobile number : ");
 		String mobileNum = sc.nextLine();
+		System.out.print("Enter password : ");
+		String password = sc.nextLine();
+		
 
 		UserRegistration userRegistration = new UserRegistration();
 		userRegistration.firstNameValidation(firstName); // validating first name
 		userRegistration.lastNameValidation(lastName);
 		userRegistration.emailValidation(email);
 		userRegistration.mobileNumValidation(mobileNum);
+		userRegistration.passwordValidation(password);
 		sc.close();
 
 	}

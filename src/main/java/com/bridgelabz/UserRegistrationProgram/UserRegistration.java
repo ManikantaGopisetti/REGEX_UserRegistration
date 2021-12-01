@@ -39,4 +39,13 @@ public class UserRegistration {
 		
 	}
 
+	public void passwordValidation(String password) {
+		
+		String passwordRegex = "^.{8,}$";  //minimum 8 characters
+		Pattern pattern = Pattern.compile(passwordRegex);
+		Matcher matcher = pattern.matcher(password);
+		System.out.println("password pattern match: "+matcher.matches());
+		
+	}
+
 }
