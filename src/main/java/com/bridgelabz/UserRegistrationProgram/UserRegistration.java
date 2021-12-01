@@ -16,15 +16,15 @@ public class UserRegistration {
 
 	public void lastNameValidation(String lastName) {
 
-		String lastNameRegex = "^[a-z]{2,}$"; // Last name starts with Cap and has minimum 3 characters
+		String lastNameRegex = "^[A-Z][a-z]{2,}$"; // Last name starts with Cap and has minimum 3 characters
 		Pattern pattern = Pattern.compile(lastNameRegex);
 		Matcher matcher = pattern.matcher(lastName);
 		System.out.println(matcher.matches());// prints true if valid otherwise false
 	}
 
 	public void emailValidation(String email) {
-
-		String emailRegex = "^[A-Za-z0-9+_-]+([.][A-Za-z0-9+_-]+)*@[A-Za-z0-9]+([.][A-Za-z0-9]{2,})+$"; //Email has 3 mandatory parts and 2 optional withprecise @ and . positions
+		// Email has 3 mandatory parts and 2 optional with precise @ and . positions
+		String emailRegex = "^[A-Za-z0-9+_-]+([.][A-Za-z0-9+_-]+)*@[A-Za-z0-9]+([.][A-Za-z0-9]{2,})+$"; 
 		Pattern pattern = Pattern.compile(emailRegex);
 		Matcher matcher = pattern.matcher(email);
 		System.out.println(matcher.matches());
