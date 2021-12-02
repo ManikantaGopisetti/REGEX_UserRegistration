@@ -40,7 +40,7 @@ public class UserRegistration {
 		System.out.println("Mobile number pattern match: "+matcher.matches());
 		return matcher.matches();
 	}
-
+	
 	public boolean passwordValidation(String password) {
 		
 		String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9])(?=^[A-Za-z0-9]*[_\\W][A-Za-z0-9]*$).{8,}$";  //exactly 1 special character

@@ -17,7 +17,6 @@ public class UserRegistrationApp {
 		String mobileNum = sc.nextLine();
 		System.out.print("Enter password : ");
 		String password = sc.nextLine();
-		
 
 		UserRegistration userRegistration = new UserRegistration();
 		userRegistration.firstNameValidation(firstName); // validating first name
