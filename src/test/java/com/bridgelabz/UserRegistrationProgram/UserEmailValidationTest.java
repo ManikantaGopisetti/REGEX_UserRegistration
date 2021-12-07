@@ -23,7 +23,7 @@ public class UserEmailValidationTest {
 	}
 	
 	@Parameters
-	public static Collection emailinput() {
+	public static Collection emaiInput() {
 		return Arrays.asList(new Object[][] {
 			{"abc@yahoo.com",true},
 			{"abc-100@yahoo.com",true},
@@ -56,7 +56,7 @@ public class UserEmailValidationTest {
 	}
 	
 	@Test
-	@Parameters(name="input()")
+	@Parameters(name="emailInput()")
 	public void emailValidation(){
 		
 		boolean output=uRegistration.emailValidation(email);
