@@ -12,96 +12,94 @@ public class UserValidationTest {
 	public void userinit() {
 		uRegistration = new UserRegistration();
 	}
-	
-	//for Happy and Sad
+
+	// for Happy and Sad
 
 	@Test
 	public void firstNameValidationHappy() {
-		boolean output = uRegistration.firstNameValidation("Manikanta");
+		boolean output = uRegistration.iUserRegestration.userValidation("Manikanta", UserRegistration.FIRST_NAME_REGEX);
 		assertEquals(true, output);
 	}
 
 	@Test
 	public void firstNameValidationsad() {
-		boolean output = uRegistration.firstNameValidation("man");
+		boolean output = uRegistration.iUserRegestration.userValidation("man", UserRegistration.FIRST_NAME_REGEX);
 		assertEquals(false, output);
 	}
 
 	@Test
 	public void lastNameValidationHappy() {
-		boolean output = uRegistration.lastNameValidation("Man");
+		boolean output = uRegistration.iUserRegestration.userValidation("Man", UserRegistration.LAST_NAME_REGEX);
 		assertEquals(true, output);
 	}
 
 	@Test
 	public void lastNameValidationsad() {
-		boolean output = uRegistration.lastNameValidation("manikanta");
+		boolean output = uRegistration.iUserRegestration.userValidation("manikanta", UserRegistration.LAST_NAME_REGEX);
 		assertEquals(false, output);
 	}
 
 	@Test
 	public void emailValidationHappy() {
-		boolean output = uRegistration.emailValidation("manikanta@gmail.com");
+		boolean output = uRegistration.iUserRegestration.userValidation("manikanta@gmail.com",
+				UserRegistration.EMAIL_REGEX);
 		assertEquals(true, output);
 	}
 
 	@Test
 	public void emailValidationSad() {
-		boolean output = uRegistration.emailValidation("mani@kanta@gmail.com");
+		boolean output = uRegistration.iUserRegestration.userValidation("mani@kanta@gmail.com",
+				UserRegistration.EMAIL_REGEX);
 		assertEquals(false, output);
 	}
 
 	@Test
 	public void mobileNumValidationHappy() {
-		boolean output = uRegistration.mobileNumValidation("91 9959965321");
+		boolean output = uRegistration.iUserRegestration.userValidation("91 9959965321",
+				UserRegistration.MOBILE_NUM_REGEX);
 		assertEquals(true, output);
 	}
 
 	@Test
 	public void mobileNumValidationSad() {
-		boolean output = uRegistration.mobileNumValidation("91 995996");
+		boolean output = uRegistration.iUserRegestration.userValidation("91 995996", UserRegistration.MOBILE_NUM_REGEX);
 		assertEquals(false, output);
 	}
 
 	@Test
 	public void passwordValidationHappy() {
-		boolean output = uRegistration.passwordValidation("Mani@1234");
+		boolean output = uRegistration.iUserRegestration.userValidation("Mani@1234", UserRegistration.PASSWORD_REGEX);
 		assertEquals(true, output);
 	}
 
 	@Test
 	public void passwordValidationSad() {
-		boolean output = uRegistration.passwordValidation("mani1234");
+		boolean output = uRegistration.iUserRegestration.userValidation("mani1234", UserRegistration.PASSWORD_REGEX);
 		assertEquals(false, output);
 	}
-	
-	
-	//for exceptions
+
+	// for exceptions
 
 	@Test(expected = InvalideUserDetailsException.class)
 	public void firstNameValidationException() {
-		boolean output = uRegistration.firstNameValidation(null);
-		assertEquals(true, output);
+		uRegistration.iUserRegestration.userValidation(null, UserRegistration.FIRST_NAME_REGEX);
 	}
 
 	@Test(expected = InvalideUserDetailsException.class)
 	public void lastNameValidationException() {
-		boolean output = uRegistration.lastNameValidation("");
-		assertEquals(true, output);
+		uRegistration.iUserRegestration.userValidation("", UserRegistration.LAST_NAME_REGEX);
 	}
 
 	@Test(expected = InvalideUserDetailsException.class)
 	public void emailValidationException() {
-		boolean output = uRegistration.emailValidation(null);
-		assertEquals(true, output);
+		uRegistration.iUserRegestration.userValidation(null, UserRegistration.EMAIL_REGEX);
 	}
 
 	// for practice tried if it was working or not
 	@Test
 	public void mobileNumValidationException() {
 		try {
-			boolean output = uRegistration.mobileNumValidation(null);
-			assertEquals(true, output);
+			uRegistration.iUserRegestration.userValidation(null, UserRegistration.MOBILE_NUM_REGEX);
 		} catch (InvalideUserDetailsException e) {
 			e.printStackTrace();
 		}
@@ -109,8 +107,8 @@ public class UserValidationTest {
 
 	@Test(expected = InvalideUserDetailsException.class)
 	public void passwordValidationException() {
-			boolean output = uRegistration.passwordValidation(null);
-			assertEquals(true, output);
+		uRegistration.iUserRegestration.userValidation(null, UserRegistration.PASSWORD_REGEX);
+
 	}
 
 }
